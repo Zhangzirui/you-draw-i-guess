@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #canvas {
+            width: 100%;
+            height: 600px;
+        }
+        #frontCanvas {
+            position: absolute;
+            left: 0;
+            top: 610px;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+    <hr/>
+    <canvas id="frontCanvas"></canvas>
+    <script src="js/util.js"></script>
+    <script src="js/drawCanvas.js"></script>
+    <script>
+        let cDom = document.getElementById('canvas'),
+            fDom = document.getElementById('frontCanvas');
+        let draw = new DrawControl(cDom, fDom);
+        draw.init(function () {
+
+            let imgUrl = draw.getFrontImgUrl();
+            console.log("*********front***********");
+            console.log(imgUrl);
+        }, function () {
+            let imgUrl = draw.getBackImgUrl();
+            console.log("*********back***********");
+            console.log(imgUrl);
+        });
+    </script>
+</body>
+</html>
